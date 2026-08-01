@@ -39,7 +39,7 @@ export function Projects() {
               }`}
             >
               <Link
-                href={`/projects#${project.slug}`}
+                href={`/projects/${project.slug}`}
                 className="img-reveal block overflow-hidden rounded-3xl md:col-span-8"
               >
                 <div className="relative aspect-[16/10]">

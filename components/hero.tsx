@@ -65,8 +65,8 @@ export function Hero() {
       ))}
 
       {/* Depth scrim */}
-      <div className="absolute inset-0 z-20 bg-primary/40" />
-      <div className="absolute inset-x-0 bottom-0 z-20 h-1/2 bg-gradient-to-t from-primary/80 to-transparent" />
+      <div className="absolute inset-0 z-20 bg-primary/55" />
+      <div className="absolute inset-x-0 bottom-0 z-20 h-1/3 bg-primary/30" />
 
       {/* Content */}
       <div className="relative z-30 flex h-full flex-col items-center justify-center px-6 text-center">

@@ -72,6 +72,21 @@
   }
   body {
     @apply bg-background text-foreground;
+    text-rendering: optimizeLegibility;
+  }
+  ::selection {
+    background: var(--accent);
+    color: var(--accent-foreground);
+  }
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 4px;
+  }
+}
+
+@layer components {
+  .text-label {
+    @apply text-[0.65rem] font-medium uppercase tracking-[0.25em];
   }
 }
 
@@ -181,10 +196,5 @@
 /* ————— Page hero parallax layer ————— */
 
 .hero-scrim {
-  background: linear-gradient(
-    to top,
-    oklch(0.24 0.07 258 / 82%),
-    oklch(0.24 0.07 258 / 35%) 45%,
-    oklch(0.24 0.07 258 / 45%)
-  );
+  background: oklch(0.24 0.07 258 / 58%);
 }
