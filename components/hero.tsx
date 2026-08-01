@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { cn } from '@/lib/utils'
 
 const slides = [
@@ -92,12 +93,12 @@ export function Hero() {
           >
             Explore Divisions
           </a>
-          <a
-            href="#consultation"
+          <Link
+            href="/contact"
             className="lift rounded-2xl border border-primary-foreground/25 px-8 py-4 text-xs font-medium uppercase tracking-[0.2em] text-primary-foreground/85 hover:text-primary-foreground"
           >
             Book Consultation
-          </a>
+          </Link>
         </div>
       </div>
 

@@ -1,37 +1,8 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import { ArrowUpRight } from 'lucide-react'
 import { Reveal } from '@/components/reveal'
-
-const divisions = [
-  {
-    title: 'Built Environments',
-    line: 'Interiors reimagined through architectural surface systems.',
-    image: '/images/div-built.png',
-    alt: 'Residential interior with wrapped architectural wall panels',
-    categories: ['Kitchen & Cabinetry', 'Hospitality', 'Retail', 'Workplaces'],
-  },
-  {
-    title: 'Glass Technologies',
-    line: 'Light, privacy and intelligence — engineered into glass.',
-    image: '/images/div-glass.png',
-    alt: 'Smart switchable glass partition detail',
-    categories: ['Privacy Films', 'Solar Control', 'Smart Glass', 'Decorative'],
-  },
-  {
-    title: 'Visual Communications',
-    line: 'Environments that speak with clarity and restraint.',
-    image: '/images/div-visual.png',
-    alt: 'Premium retail storefront with minimal window graphics',
-    categories: ['Fleet Branding', 'Window Graphics', 'Wayfinding', 'Signage'],
-  },
-  {
-    title: 'Mobility',
-    line: 'Precision surface craft for vehicles of every scale.',
-    image: '/images/div-mobility.png',
-    alt: 'Luxury vehicle detail with satin protection wrap',
-    categories: ['Colour Change', 'Paint Protection', 'Fleets', 'Marine & Aircraft'],
-  },
-]
+import { divisions } from '@/lib/site-data'
 
 export function Divisions() {
   return (
@@ -47,15 +18,15 @@ export function Divisions() {
 
       <div className="mt-16 grid gap-8 md:grid-cols-2">
         {divisions.map((division, i) => (
-          <Reveal key={division.title} delay={i * 120}>
-            <a
-              href="#consultation"
+          <Reveal key={division.slug} delay={i * 120}>
+            <Link
+              href={`/divisions/${division.slug}`}
               className="lift img-reveal group block overflow-hidden rounded-3xl bg-card"
             >
               <div className="relative aspect-[4/3] overflow-hidden">
                 <Image
-                  src={division.image || '/placeholder.svg'}
-                  alt={division.alt}
+                  src={division.hero || '/placeholder.svg'}
+                  alt={division.heroAlt}
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover"
@@ -70,12 +41,12 @@ export function Divisions() {
                     {division.line}
                   </p>
                   <ul className="mt-5 flex flex-wrap gap-2">
-                    {division.categories.map((category) => (
+                    {division.services.slice(0, 4).map((service) => (
                       <li
-                        key={category}
+                        key={service.title}
                         className="rounded-full border border-border px-3 py-1 text-[0.65rem] font-medium uppercase tracking-[0.12em] text-muted-foreground"
                       >
-                        {category}
+                        {service.title}
                       </li>
                     ))}
                   </ul>
@@ -84,7 +55,7 @@ export function Divisions() {
                   <ArrowUpRight className="size-4" aria-hidden="true" />
                 </span>
               </div>
-            </a>
+            </Link>
           </Reveal>
         ))}
       </div>
