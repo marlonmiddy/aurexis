@@ -15,9 +15,19 @@ const body = Inter({
 })
 
 export const metadata: Metadata = {
-  title: 'AUREXIS — Surface Transformations',
+  title: {
+    default: 'AUREXIS — Surface Transformations',
+    template: '%s — AUREXIS',
+  },
   description:
-    'Engineering better surfaces. Built environments, glass technologies, visual communications and mobility — transformed with precision and intention.',
+    'A surface transformation company. Built environments, glass technologies, visual communications and mobility — engineered with precision from Cape Town and Victoria Falls.',
+  openGraph: {
+    title: 'AUREXIS — Surface Transformations',
+    description:
+      'Engineering better experiences through surfaces. Architecture, glass, visual communication and mobility.',
+    siteName: 'AUREXIS',
+    type: 'website',
+  },
   generator: 'v0.app',
 }
 
