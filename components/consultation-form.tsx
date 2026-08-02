@@ -8,6 +8,12 @@ export function ConsultationForm() {
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
+    const form = new FormData(event.currentTarget)
+    const subject = encodeURIComponent(`Aurexis consultation — ${String(form.get('division'))}`)
+    const body = encodeURIComponent(
+      `Name: ${String(form.get('name'))}\nEmail: ${String(form.get('email'))}\nPhone: ${String(form.get('phone') || 'Not supplied')}\nDivision: ${String(form.get('division'))}\n\nProject:\n${String(form.get('message'))}`,
+    )
+    window.location.href = `mailto:aurexiscorp@gmail.com?subject=${subject}&body=${body}`
     setSubmitted(true)
   }
 
@@ -47,6 +53,15 @@ export function ConsultationForm() {
           />
         </label>
       </div>
+      <label className="flex flex-col gap-2 text-xs font-medium uppercase tracking-[0.15em] text-muted-foreground">
+        Phone <span className="normal-case tracking-normal text-muted-foreground/70">(optional)</span>
+        <input
+          type="tel"
+          name="phone"
+          autoComplete="tel"
+          className="rounded-xl border border-input bg-background px-4 py-3 text-sm normal-case tracking-normal text-foreground outline-none transition-colors focus:border-primary"
+        />
+      </label>
       <label className="flex flex-col gap-2 text-xs font-medium uppercase tracking-[0.15em] text-muted-foreground">
         Division
         <select

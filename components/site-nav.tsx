@@ -9,9 +9,11 @@ import { company, divisions } from '@/lib/site-data'
 import { cn } from '@/lib/utils'
 
 const pages = [
+  { href: '/divisions', label: 'All Divisions' },
   { href: '/about', label: 'About' },
   { href: '/projects', label: 'Projects' },
-  { href: '/warranty', label: 'Warranty' },
+  { href: '/warranty', label: 'Aurexis Assurance' },
+  { href: '/faq', label: 'FAQ' },
   { href: '/contact', label: 'Contact' },
 ]
 
